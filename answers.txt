@@ -1,4 +1,23 @@
-What is a gitignore file and what should it include for a Java project?
-What does fast-forward in Git mean?
-Why should you have different branches?
-In a project how many remote Git repositories do you usually have? 
+Q1 :What is a gitignore file and what should it include for a Java project?
+A1: -> gitignore - Specifies intentionally untracked files to ignore
+    -> if you create a file in your repository named .gitignore, Git uses it to determine which files and directories to              ignore,before you make a commit. A .gitignore file should be committed into your repository, in order to share the            ignore rules with any other users that clone the repository.
+    -> .gitignore for java should include following 
+        # Compiled class file in form of *.class
+        # Log file in form of *.log
+        # BlueJ files in form of *.ctxt
+        # Mobile Tools for Java (J2ME) in form of .mtj.tmp/
+        # Package Files in form of *.jar,*.war,*.nar,*.ear,*.zip,*.tar.gz,*.rar
+        # virtual machine crash logs, in form of hs_err_pid*
+    
+Q2: What does fast-forward in Git mean?
+A2: ->Fast-Forward in git means that a pull/rebase was able to update directly to the new revision without having to perform         any merges.
+    ->For instance, if you create a new branch from master named "mydev" and you make several commits, as long as nobody else       committed to master while you were working you could do a "fast-forward merge" which basically means that git simply           moves the HEAD pointer for that branch to the latest commit without doing any hard work.
+    ->If someone else had made a commit before you merged your changes back to master, it would be a standard merge where git       had to try and determine if there were any conflicts between the two sets of changes. 
+
+Q3: Why should you have different branches?
+A3: ->Branches help separate different projects so that it is easy to push out only finished projects. Branches also tend to         be easier than cloned directories for pulling in changes and for sharing changes across multiple projects.
+    ->Branches also have the added benefit of allowing users to share a development branch and so work together on a project         without disturbing the master branch, which is something we have occasion to do on our project frequently. And keep in         mind, ease of branching was one of the reasons we chose git over other source code control systems.
+    ->It is recommended that you leave your master branch clean of any but the shortest of projects. This is primarily because       it provides users a clean branch to use to make minor changes without worrying about accidentally pushing out half-baked       projects. It also has the added benefit of simplifying how to use git pull and git push when you have more than one           branch. 
+
+Q4: In a project how many remote Git repositories do you usually have? 
+A4: You can have as many remotes as you want, but you can only have one remote named "origin". The remote called "origin" is       not special in any way, except that it is the default remote created by Git when you clone an existing repository. You can     configure a second remote, push to/pull from that remote, and setup some branches to track branches from that remote           instead of origin.
